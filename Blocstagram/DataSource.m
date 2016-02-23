@@ -15,7 +15,7 @@
 
 //This pattern states that this property can only be modified by the DataSource instance. Instances of other classes can only read from it.
 
-@property (nonatomic, strong) NSArray *mediaItems;
+@property (nonatomic, strong) NSMutableArray *mediaItems;
 
 @end
 
@@ -57,6 +57,12 @@
     return self;
 }
 
+
+- (void)deleteRow:(NSIndexPath *)indexPath {
+    // delete from self.mediaItems
+    [self.mediaItems removeObjectAtIndex:indexPath.row ];
+    NSLog(@"in DataSource trying to remove indexPath %@", indexPath);
+}
 - (void) addRandomData {
     NSMutableArray *randomMediaItems = [NSMutableArray array];
     

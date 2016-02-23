@@ -14,7 +14,11 @@
 // method sharedInstance is in DataSource.m
 +(instancetype) sharedInstance;
 
+-(void) deleteRow:(NSIndexPath *) indexPath;
+
+
+
 //√This property is readonly to prevent other classes from modifying it. 
-@property (nonatomic, strong, readonly) NSArray *mediaItems;
+@property (nonatomic, strong, readonly) NSMutableArray *mediaItems;
 
 @end

@@ -142,8 +142,11 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         // remove image from self.images
-        [self.images removeObjectAtIndex:indexPath.row];
+        //[self.images removeObjectAtIndex:indexPath.row];
         
+        [[DataSource sharedInstance] deleteRow:indexPath];
+        
+ 
        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         NSLog(@"\n**\n\n** delete row of table array here \n");
 
