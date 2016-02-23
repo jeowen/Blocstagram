@@ -13,6 +13,8 @@
 
 @interface DataSource ()
 
+//This pattern states that this property can only be modified by the DataSource instance. Instances of other classes can only read from it.
+
 @property (nonatomic, strong) NSArray *mediaItems;
 
 @end
@@ -21,6 +23,13 @@
 @implementation DataSource
 
 //To access to this class call [DataSource sharedInstance]. If the shared instance exists, this method will return it. If it doesn't, it will be created and then returned. Let's implement the method:
+
+//------------------------------------------>
+//The dispatch_once function ensures we only create a single instance of this class. This function takes a block of code and runs it only the first time it's called.
+
+//We define a static variable to hold our shared instance: static id sharedInstance;.
+//
+//Finally we return the instance: return sharedInstance;.
 
 + (instancetype) sharedInstance {
     
@@ -37,7 +46,7 @@
 }
 
 //--------------------------------
-
+// We will create a set of methods designed to generate random data for us when the class gets initialized.
 - (instancetype) init {
     self = [super init];
     
