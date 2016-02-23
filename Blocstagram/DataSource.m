@@ -63,8 +63,10 @@
     [self.mediaItems removeObjectAtIndex:indexPath.row ];
     NSLog(@"in DataSource trying to remove indexPath %@", indexPath);
 }
+
 - (void) addRandomData {
     NSMutableArray *randomMediaItems = [NSMutableArray array];
+    
     
     for (int i = 1; i <= 10; i++) {
         NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
@@ -91,6 +93,7 @@
     }
     
     self.mediaItems = randomMediaItems;
+    
 }
 
 - (User *) randomUser {
