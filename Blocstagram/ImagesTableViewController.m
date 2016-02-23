@@ -11,6 +11,7 @@
 #import "Media.h"
 #import "User.h"
 #import "Comment.h"
+#import "MediaTableViewCell.h"
 
 
 @interface ImagesTableViewController ()
@@ -53,8 +54,8 @@
 //        }
 //    }// end for
     
-     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"imageCell"];
-    
+    // [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"imageCell"];
+    [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,15 +79,14 @@
 
 #pragma mark create items array for ease of formatting
 - (NSMutableArray *) items{
-    NSMutableArray *tempieArray = [[NSMutableArray alloc] init];
-    tempieArray = [DataSource sharedInstance].mediaItems;
-    return tempieArray;
+    NSMutableArray *mediaItemArray = [[NSMutableArray alloc] init];
+    mediaItemArray = [DataSource sharedInstance].mediaItems;
+    return mediaItemArray;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *item = [self items][indexPath.row];
-    UIImage *image = item.image;
-    return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
+    return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
 }
 
 
@@ -100,37 +100,14 @@
 //    a brand new cell of the type we registered, or
 //    a used one that is no longer visible on screen.
 //    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
     
     // Configure the cell...
     // #2
     // In #2, we set imageViewTag to an arbitrary number - what matters is that it remains consistent. A numerical tag can be attached to any UIView and used later to recover it from its superview by invoking viewWithTag:. This is a quick and dirty way for us to recover the UIImageView which will host the image for this cell.
     
-    static NSInteger imageViewTag = 1234;
-    UIImageView *imageView = (UIImageView*)[cell.contentView viewWithTag:imageViewTag];
-    
-    // #3
-    //In #3, we handle the case when viewWithTag: fails to recover a UIImageView. That means it didn't have one and therefore it's a brand new cell. We know it's a new cell because we plan to add a UIImageView to each cell we come across. Therefore, on the second time around, it should already be there.
-    
-    if (!imageView) {
-        // This is a new cell, it doesn't have an image view yet
-        //We proceed to allocate a new UIImageView object. Its contentMode is specified as UIViewContentModeScaleToFill, which means the image will be stretched both horizontally and vertically to fill the bounds of the UIImageView. Then we set its frame to be the same as the UITableViewCell's contentView such that the image consumes the entirety of the cell.
-        imageView = [[UIImageView alloc] init];
-        imageView.contentMode = UIViewContentModeScaleToFill;
-        
-        
-
-        // In #4, we set the image view's auto-resizing property. The autoresizingMask is associated with all UIView objects. This property lets its superview know how to resize it when the superview's width or height changes. These are called "bit-wise flags" and we set by OR-ing them together using |. The available options are as follows:
-        imageView.frame = cell.contentView.bounds;
-        imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        
-        imageView.tag = imageViewTag;
-        [cell.contentView addSubview:imageView];
-    }
-    
-    Media *item = [self items][indexPath.row];
-    imageView.image = item.image;
-    
+    MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
+    cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     return cell;
 }
 
