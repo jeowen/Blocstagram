@@ -106,9 +106,21 @@
     // #2
     // In #2, we set imageViewTag to an arbitrary number - what matters is that it remains consistent. A numerical tag can be attached to any UIView and used later to recover it from its superview by invoking viewWithTag:. This is a quick and dirty way for us to recover the UIImageView which will host the image for this cell.
     
+    
+    
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    return cell;
+    
+    MediaTableViewCell *cellToReturn = cell;
+//    
+//    // attempt to change color of comment to orange
+    MediaTableViewCell *cellWithOrangeComment = cell;
+//    
+    cellWithOrangeComment.mediaItem =  [cellWithOrangeComment updateCommentForMediaItem:[DataSource sharedInstance].mediaItems[indexPath.row] forIndexPath:indexPath ];
+    
+    //if indexPath = 0, cell to reutrn = cell with orange comment!
+    
+    return cellToReturn;
 }
 
 

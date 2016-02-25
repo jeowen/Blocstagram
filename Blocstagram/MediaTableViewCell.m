@@ -186,4 +186,12 @@ static NSParagraphStyle *paragraphStyle;
     // The height will be wherever the bottom of the comments label is
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
+
+- (Media *) updateCommentForMediaItem:(Media *)mediaItem forIndexPath:(NSIndexPath *)indexPath{
+    Media * updatedMediaItem = mediaItem;
+    NSLog(@"*******attempting to update a media item with indexPath row = %ld \n\n", (long)indexPath.row);
+    return (updatedMediaItem);
+}
+
 @end
+

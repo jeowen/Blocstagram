@@ -16,5 +16,7 @@
 @property (nonatomic, strong) Media *mediaItem;
 
  + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width;
+- (Media *) updateCommentForMediaItem:(Media *)mediaItem forIndexPath:(NSIndexPath *)indexPath;
+
 
 @end
