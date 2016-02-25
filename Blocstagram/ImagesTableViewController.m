@@ -116,10 +116,14 @@
 //    // attempt to change color of comment to orange
     MediaTableViewCell *cellWithOrangeComment = cell;
 //    
-    cellWithOrangeComment.mediaItem =  [cellWithOrangeComment updateCommentForMediaItem:[DataSource sharedInstance].mediaItems[indexPath.row] forIndexPath:indexPath ];
     
     //if indexPath = 0, cell to reutrn = cell with orange comment!
-    
+    if (indexPath.row == 0){
+        //change color of comment to orange
+        NSLog(@"******ImagesTableViewController detects the first ROW\n");
+        cellWithOrangeComment.mediaItem =  [cellWithOrangeComment updateCommentForMediaItem:[DataSource sharedInstance].mediaItems[indexPath.row] forIndexPath:indexPath ];
+
+    }
     return cellToReturn;
 }
 

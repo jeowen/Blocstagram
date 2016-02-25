@@ -87,6 +87,8 @@
             }
             
             media.comments = randomComments;
+            media.mediaNumber = i;
+            
             
             [randomMediaItems addObject:media];
         }

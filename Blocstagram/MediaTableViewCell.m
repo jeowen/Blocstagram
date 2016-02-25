@@ -67,6 +67,7 @@ static NSParagraphStyle *paragraphStyle;
     boldFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
     usernameLabelGray = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1]; /*#eeeeee*/
     commentLabelGray = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1]; /*#e5e5e5*/
+   
     linkColor = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1]; /*#58506d*/
     
     NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -98,6 +99,11 @@ static NSParagraphStyle *paragraphStyle;
     [mutableUsernameAndCaptionString addAttribute:NSFontAttributeName value:[boldFont fontWithSize:usernameFontSize] range:usernameRange];
     [mutableUsernameAndCaptionString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
     
+    // change kern of caption only
+    NSRange captionRange = [baseString rangeOfString:self.mediaItem.caption];
+    NSNumber *kernValue = [NSNumber numberWithDouble:7.0];
+     [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName value:kernValue range:captionRange];
+    
     return mutableUsernameAndCaptionString;
 }
 
@@ -105,13 +111,42 @@ static NSParagraphStyle *paragraphStyle;
 - (NSAttributedString *) commentString {
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
     
+    
+
     for (Comment *comment in self.mediaItem.comments) {
         // Make a string that says "username comment" followed by a line break
         NSString *baseString = [NSString stringWithFormat:@"%@ %@\n", comment.from.userName, comment.text];
+        NSMutableAttributedString *oneCommentString ;
         
         // Make an attributed string, with the "username" bold
+        if (self.mediaItem.mediaNumber == 1){ //change comment color to orange for FIRST comment only
+            NSLog(@"*****\n*****\n*****\nfound the FIRST comment \n\n");
+            UIColor *orangeColor = [UIColor colorWithRed:0.90 green:0.57 blue:0.22 alpha:1.0];
+            
+            oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle, NSForegroundColorAttributeName:orangeColor}];
+        }
+        else if (self.mediaItem.mediaNumber %2 == 0){ // if this is an EVEN comment, right-align it
+            // now create a paragraph style for right-aligning text
+            NSMutableParagraphStyle *paragraphStyleRightAlign = [[NSMutableParagraphStyle alloc]init] ;
+            
+            paragraphStyleRightAlign.headIndent = 20.0;
+            paragraphStyleRightAlign.firstLineHeadIndent = 20.0;
+            paragraphStyleRightAlign.tailIndent = -20.0;
+            paragraphStyleRightAlign.paragraphSpacingBefore = 5;
+             [paragraphStyleRightAlign setAlignment:NSTextAlignmentRight];
+            
+            NSParagraphStyle *paragraphStyleRight = paragraphStyleRightAlign;
+            
+           
+            
+             oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyleRight}];
+        }
+        else{
+            oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
+            
+        }
         
-        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
+
         
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
@@ -190,7 +225,37 @@ static NSParagraphStyle *paragraphStyle;
 - (Media *) updateCommentForMediaItem:(Media *)mediaItem forIndexPath:(NSIndexPath *)indexPath{
     Media * updatedMediaItem = mediaItem;
     NSLog(@"*******attempting to update a media item with indexPath row = %ld \n\n", (long)indexPath.row);
+    self.commentLabel.attributedText = [self updateCommentString];
     return (updatedMediaItem);
+}
+- (NSMutableAttributedString *) updateCommentString{
+    // update the comment string and return it
+    NSLog(@"****** REACHED MediaTableViewCell Object, implementing method updateCommentString \n");
+    NSMutableAttributedString * updatedCommentString = [[NSMutableAttributedString alloc] init];
+    //-------------------->
+    NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
+    
+    for (Comment *comment in self.mediaItem.comments) {
+        // Make a string that says "username comment" followed by a line break
+        NSString *baseString = [NSString stringWithFormat:@"%@ %@\n", comment.from.userName, comment.text];
+        
+        // Make an attributed string, with the "username" bold
+        
+        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle}];
+        
+        NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
+        [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
+        
+        UIColor *updatedLinkColor = [UIColor colorWithRed:0.92 green:0.50 blue:0.05 alpha:1.0];
+        
+        [oneCommentString addAttribute:NSForegroundColorAttributeName value:updatedLinkColor range:usernameRange];
+        
+        [commentString appendAttributedString:oneCommentString];
+    }
+    
+    return commentString;
+    //=======================>
+    return updatedCommentString;
 }
 
 @end
