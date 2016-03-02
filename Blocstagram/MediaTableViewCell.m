@@ -67,6 +67,7 @@ static NSParagraphStyle *paragraphStyle;
         
         //_mediaImageView's leading edge is equal to the content view's leading edge. Their trailing edges are equal too.
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
+       // [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_mediaImageView(100)]" options:kNilOptions metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
@@ -85,7 +86,12 @@ static NSParagraphStyle *paragraphStyle;
                                                                   attribute:NSLayoutAttributeNotAnAttribute
                                                                  multiplier:1
                                                                    constant:100];
+
+        
         self.imageHeightConstraint.identifier = @"Image height constraint";
+
+        
+        
         
         self.usernameAndCaptionLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_usernameAndCaptionLabel
                                                                                     attribute:NSLayoutAttributeHeight
@@ -261,6 +267,8 @@ static NSParagraphStyle *paragraphStyle;
 + (CGFloat) heightForMediaItem:(Media *)mediaItem width:(CGFloat)width {
     // Make a cell
     MediaTableViewCell *layoutCell = [[MediaTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
+    
+    layoutCell.mediaItem = mediaItem;
     
     layoutCell.frame = CGRectMake(0, 0, width, CGRectGetHeight(layoutCell.frame));
     [layoutCell setNeedsLayout];
