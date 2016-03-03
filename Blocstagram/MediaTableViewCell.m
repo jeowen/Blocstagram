@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 
+
 @end
 
 static UIFont *lightFont;
@@ -42,6 +43,7 @@ static NSParagraphStyle *paragraphStyle;
     // Configure the view for the selected state
 }
 
+#pragma mark initWithStyle
 
 // use designated initializer
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -66,8 +68,8 @@ static NSParagraphStyle *paragraphStyle;
         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel);
         
         //_mediaImageView's leading edge is equal to the content view's leading edge. Their trailing edges are equal too.
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
-       // [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"[_mediaImageView(100)]" options:kNilOptions metrics:nil views:viewDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView(100)]|" options:kNilOptions metrics:nil views:viewDictionary]];
+   
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
@@ -90,7 +92,7 @@ static NSParagraphStyle *paragraphStyle;
         
         self.imageHeightConstraint.identifier = @"Image height constraint";
 
-        
+
         
         
         self.usernameAndCaptionLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_usernameAndCaptionLabel
@@ -241,7 +243,10 @@ static NSParagraphStyle *paragraphStyle;
     
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
-    self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    
+    // set image height to 100
+    //self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
+    self.imageHeightConstraint.constant = 100;
     
     
     // Hide the line between cells
