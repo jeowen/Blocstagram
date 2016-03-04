@@ -10,6 +10,12 @@
 
  @class Media;
 
+
+// create block of code for a completion handler
+
+ typedef void (^NewItemCompletionBlock)(NSError *error);
+
+
 @interface DataSource : NSObject
 
 //To access to this class call [DataSource sharedInstance]. If the shared instance exists, this method will return it.
@@ -26,7 +32,11 @@
 //Let's add a method to DataSource which lets other classes delete a media item:
  - (void) deleteMediaItem:(Media *)item;
 
+//
+- (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
+
+
 // for checkpoint, add a method which will move media item to top instead of deleting it
-- (void) moveMediaItemToTop:(Media *) item;
+//- (void) moveMediaItemToTop:(Media *) item;
 
 @end

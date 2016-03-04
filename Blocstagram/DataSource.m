@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) NSMutableArray *mediaItems;
 
+@property (nonatomic, assign) BOOL isRefreshing;
 @end
 
 
@@ -191,4 +192,27 @@
     [mutableArrayWithKVO removeObject:item];
     [mutableArrayWithKVO insertObject:item atIndex:0];
 }
+//=======================================
+#pragma mark Completion Handler
+- (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
+    // #1
+    if (self.isRefreshing == NO) {
+        self.isRefreshing = YES;
+        // #2
+        Media *media = [[Media alloc] init];
+        media.user = [self randomUser];
+        media.image = [UIImage imageNamed:@"10.jpg"];
+        media.caption = [self randomSentence];
+        
+        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+        [mutableArrayWithKVO insertObject:media atIndex:0];
+        
+        self.isRefreshing = NO;
+        
+        if (completionHandler) {
+            completionHandler(nil);
+        }
+    }
+}
+//================================
 @end

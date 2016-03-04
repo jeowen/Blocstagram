@@ -42,6 +42,11 @@
     // register for key-value observing from DataSource.m
     [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
     
+    // add pull-to-refresh
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
+
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -61,6 +66,15 @@
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
 }
 
+// add refresh control
+#pragma mark Refresh Control
+//--------------------------
+- (void) refreshControlDidFire:(UIRefreshControl *) sender{
+    [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+        [sender endRefreshing];
+    }];
+}
+//--------------------------
 // Key-Value observer MUST BE REMOVED when no longer needed
 //dealloc is an NSObject method. It allows an object to perform some cleanup before the object goes away. This method is a class's last chance to do anything before self disappears.
 // not removing an observer can cause a crash if the observed object attempts to communicate with an observing object that no longer exists
@@ -128,8 +142,8 @@
         Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
         
         // for checkpoint, move media item to top instead of deleting
-        //[[DataSource sharedInstance] deleteMediaItem:item];
-        [[DataSource sharedInstance] moveMediaItemToTop:item];
+        [[DataSource sharedInstance] deleteMediaItem:item];
+       // [[DataSource sharedInstance] moveMediaItemToTop:item];
     }
 }
 
