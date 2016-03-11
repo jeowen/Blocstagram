@@ -30,6 +30,7 @@
 		56C04F2B1C7835E3006FFDD7 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04F2A1C7835E3006FFDD7 /* DataSource.m */; };
 		56C04F311C7C2A5A006FFDD7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04F301C7C2A5A006FFDD7 /* User.m */; };
 		56C04F371C7CFC57006FFDD7 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04F361C7CFC57006FFDD7 /* MediaTableViewCell.m */; };
+		56C663591C928690007AD51D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C663581C928690007AD51D /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		56C04F301C7C2A5A006FFDD7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		56C04F351C7CFC57006FFDD7 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
 		56C04F361C7CFC57006FFDD7 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
+		56C663571C928690007AD51D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		56C663581C928690007AD51D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 				56C04F271C783573006FFDD7 /* Comment.m */,
 				56C04F291C7835E3006FFDD7 /* DataSource.h */,
 				56C04F2A1C7835E3006FFDD7 /* DataSource.m */,
+				56C663571C928690007AD51D /* LoginViewController.h */,
+				56C663581C928690007AD51D /* LoginViewController.m */,
 				56C04F2F1C7C2A5A006FFDD7 /* User.h */,
 				56C04F301C7C2A5A006FFDD7 /* User.m */,
 			);
@@ -346,6 +351,7 @@
 				56C04F281C783573006FFDD7 /* Comment.m in Sources */,
 				56C04F371C7CFC57006FFDD7 /* MediaTableViewCell.m in Sources */,
 				56C04F251C783480006FFDD7 /* Media.m in Sources */,
+				56C663591C928690007AD51D /* LoginViewController.m in Sources */,
 				56C04F2B1C7835E3006FFDD7 /* DataSource.m in Sources */,
 				56C04ED71C77C347006FFDD7 /* AppDelegate.m in Sources */,
 				56C04ED41C77C347006FFDD7 /* main.m in Sources */,

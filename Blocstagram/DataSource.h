@@ -24,6 +24,8 @@
 
 -(void) deleteRow:(NSIndexPath *) indexPath;
 
+// add instagram client key
++ (NSString *) instagramClientID;
 
 
 //√This property is readonly to prevent other classes from modifying it. 
@@ -39,4 +41,7 @@
 // for checkpoint, add a method which will move media item to top instead of deleting it
 //- (void) moveMediaItemToTop:(Media *) item;
 
+
+// property to store token received from web api
+@property (nonatomic, strong, readonly) NSString *accessToken;
 @end
