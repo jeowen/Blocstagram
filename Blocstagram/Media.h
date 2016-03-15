@@ -23,5 +23,6 @@
 @property (nonatomic, strong) NSArray *comments;
 @property (nonatomic, assign) int mediaNumber;
 
+ - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
 
 @end
