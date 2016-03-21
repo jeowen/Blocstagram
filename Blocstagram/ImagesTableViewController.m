@@ -46,6 +46,9 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
 
+    [self refreshOnLaunch:self.refreshControl];
+    
+ 
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -72,6 +75,12 @@
 - (void) refreshControlDidFire:(UIRefreshControl *) sender{
     [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
         [sender endRefreshing];
+    }];
+}
+//--------------------------
+- (void) refreshOnLaunch:(UIRefreshControl *) passedRefreshControl{
+    [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+        [passedRefreshControl endRefreshing];
     }];
 }
 //--------------------------
