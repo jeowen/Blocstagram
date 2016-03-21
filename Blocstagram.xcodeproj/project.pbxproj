@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56A81EDC1CA0877900EA7BF4 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A81EDB1CA0877900EA7BF4 /* MediaFullScreenViewController.m */; };
 		56C04ED41C77C347006FFDD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04ED31C77C347006FFDD7 /* main.m */; };
 		56C04ED71C77C347006FFDD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04ED61C77C347006FFDD7 /* AppDelegate.m */; };
 		56C04EE01C77C347006FFDD7 /* Blocstagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56C04EDE1C77C347006FFDD7 /* Blocstagram.xcdatamodeld */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56A81EDA1CA0877900EA7BF4 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		56A81EDB1CA0877900EA7BF4 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		56C04ECF1C77C347006FFDD7 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C04ED31C77C347006FFDD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56C04ED51C77C347006FFDD7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				56C04F1E1C77C5A7006FFDD7 /* ImagesTableViewController.m */,
 				56C04F351C7CFC57006FFDD7 /* MediaTableViewCell.h */,
 				56C04F361C7CFC57006FFDD7 /* MediaTableViewCell.m */,
+				56A81EDA1CA0877900EA7BF4 /* MediaFullScreenViewController.h */,
+				56A81EDB1CA0877900EA7BF4 /* MediaFullScreenViewController.m */,
 				56C04F231C783480006FFDD7 /* Media.h */,
 				56C04F241C783480006FFDD7 /* Media.m */,
 				56C04F261C783573006FFDD7 /* Comment.h */,
@@ -429,6 +434,7 @@
 				56C663591C928690007AD51D /* LoginViewController.m in Sources */,
 				56C04F2B1C7835E3006FFDD7 /* DataSource.m in Sources */,
 				56C04ED71C77C347006FFDD7 /* AppDelegate.m in Sources */,
+				56A81EDC1CA0877900EA7BF4 /* MediaFullScreenViewController.m in Sources */,
 				56C04ED41C77C347006FFDD7 /* main.m in Sources */,
 				56C04F1F1C77C5A7006FFDD7 /* ImagesTableViewController.m in Sources */,
 				56C04EE01C77C347006FFDD7 /* Blocstagram.xcdatamodeld in Sources */,
