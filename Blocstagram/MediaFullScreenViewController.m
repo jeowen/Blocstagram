@@ -60,8 +60,34 @@
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
     
+    // add a share button
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor whiteColor];
+    button.layer.borderColor = [UIColor blackColor].CGColor;
+    button.layer.borderWidth = 0.5f;
+    button.layer.cornerRadius = 10.0f;
+    
+    [button addTarget:self
+               action:@selector(buttonPressed:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"Share" forState:UIControlStateNormal];
+    button.frame = CGRectMake(200.0, 21.0, 90.0, 40.0);
+    [self.view addSubview:button];
     
 }
+
+- (void) buttonPressed:(UIControlEvents *)cEvent{
+    NSLog(@"Button Pressed \n!!!\n");
+    // update the imagesTableViewControll
+    MediaTableViewCell *tempCell = [[MediaTableViewCell alloc] init];
+    tempCell.mediaItem = self.media;
+    
+    
+     [self.delegate cell:tempCell didLongPressImageView:self.imageView];
+}
+
 
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
