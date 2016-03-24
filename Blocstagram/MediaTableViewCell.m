@@ -27,6 +27,7 @@
 //add tap gesture recognizer
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+@property(nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 
 @end
 
@@ -67,6 +68,12 @@ static NSParagraphStyle *paragraphStyle;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
         self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFired:)];
         self.longPressGestureRecognizer.delegate = self;
+        
+        self.twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapFired:)];
+        self.twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
+        
+        self.twoFingerTapGestureRecognizer.delegate = self;
+        
         [self.mediaImageView addGestureRecognizer:self.longPressGestureRecognizer];
         
         
@@ -148,6 +155,11 @@ static NSParagraphStyle *paragraphStyle;
 
 - (void) tapFired:(UITapGestureRecognizer *)sender {
     [self.delegate cell:self didTapImageView:self.mediaImageView];
+}
+
+- (void) twoFingerTapFired:(UITapGestureRecognizer *)sender {
+    //[self.delegate cell:self didTapImageView:self.mediaImageView];
+    NSLog(@"two finger tap fired!\n");
 }
 
 // we only want the image tap to do something (i.e., zoom) if it's NOT in editing mode
