@@ -74,6 +74,8 @@ static NSParagraphStyle *paragraphStyle;
         
         self.twoFingerTapGestureRecognizer.delegate = self;
         
+        [self.tapGestureRecognizer requireGestureRecognizerToFail:self.twoFingerTapGestureRecognizer];
+        
         [self.mediaImageView addGestureRecognizer:self.longPressGestureRecognizer];
         
         
