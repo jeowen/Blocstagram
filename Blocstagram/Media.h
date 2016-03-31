@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+typedef NS_ENUM(NSInteger, MediaDownloadState) {
+    MediaDownloadStateNeedsImage             = 0,
+    MediaDownloadStateDownloadInProgress     = 1,
+    MediaDownloadStateNonRecoverableError    = 2,
+    MediaDownloadStateHasImage               = 3
+};
+
+
+
 // line below avoids a circular inclusion (User.h referencing Media.h and vice-versa)
 // in general, don't import your own custom classes, instead use the "forward declaration"
 @class User;
@@ -22,6 +32,7 @@
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) NSArray *comments;
 @property (nonatomic, assign) int mediaNumber;
+@property (nonatomic, assign) MediaDownloadState downloadState;
 
  - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
 

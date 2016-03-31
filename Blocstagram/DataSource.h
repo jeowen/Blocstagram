@@ -38,6 +38,7 @@
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
 
+ - (void) downloadImageForMediaItem:(Media *)mediaItem;
 // for checkpoint, add a method which will move media item to top instead of deleting it
 //- (void) moveMediaItemToTop:(Media *) item;
 
