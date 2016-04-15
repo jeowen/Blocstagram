@@ -42,6 +42,9 @@
 // for checkpoint, add a method which will move media item to top instead of deleting it
 //- (void) moveMediaItemToTop:(Media *) item;
 
+- (void) toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler;
+
+
 
 // property to store token received from web api
 @property (nonatomic, strong, readonly) NSString *accessToken;
