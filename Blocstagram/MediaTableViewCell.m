@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UIImageView *mediaImageView;
 @property (nonatomic, strong) UILabel *usernameAndCaptionLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
+@property (nonatomic, strong) UILabel *numberOfLikesLabel;
 
 //Let's add some properties for some of our constraints:
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
@@ -31,6 +32,7 @@
 @property(nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 
  @property (nonatomic, strong) LikeButton *likeButton;
+@property (nonatomic) NSInteger *numberOfLikes;
 
 @end
 
@@ -90,21 +92,25 @@ static NSParagraphStyle *paragraphStyle;
         self.commentLabel.numberOfLines = 0;
         self.commentLabel.backgroundColor = commentLabelGray;
         
+        self.numberOfLikesLabel = [ [UILabel alloc] init];
+        self.numberOfLikesLabel.numberOfLines = 0;
+        self.numberOfLikesLabel.backgroundColor = usernameLabelGray;
+        
         self.likeButton = [[LikeButton alloc] init];
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
         self.likeButton.backgroundColor = usernameLabelGray;
         
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton]) {
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.numberOfLikesLabel, self.likeButton]) {
             [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
         // Now let's add some constraints. The first ones use a "visual format string", which lets you "draw" a rough outline of your views using only keyboard characters:
-         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton);
+         NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _numberOfLikesLabel, _likeButton);
         
         //_mediaImageView's leading edge is equal to the content view's leading edge. Their trailing edges are equal too.
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
    
-[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
+[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]-10-[_numberOfLikesLabel]-10-[_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
         //The three views should be stacked vertically, from the top, with no space in between.
@@ -328,6 +334,12 @@ static NSParagraphStyle *paragraphStyle;
     self.mediaImageView.image = _mediaItem.image;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
+    int intNumberOfLikes = (int) self.numberOfLikes;
+    
+    NSString *tempString = [NSString stringWithFormat:@"%d", intNumberOfLikes];
+    
+    self.numberOfLikesLabel.text =  tempString;
+    
     self.likeButton.likeButtonState = mediaItem.likeState;
 }
 
@@ -335,6 +347,7 @@ static NSParagraphStyle *paragraphStyle;
 
 - (void) likePressed:(UIButton *)sender {
     [self.delegate cellDidPressLikeButton:self];
+    self.numberOfLikes++;
 }
 
 
