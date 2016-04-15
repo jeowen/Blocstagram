@@ -14,7 +14,7 @@
 #import "MediaTableViewCell.h"
 #import "MediaFullScreenViewController.h"
 
-@interface ImagesTableViewController () <MediaTableViewCellDelegate>
+@interface ImagesTableViewController () <MediaTableViewCellDelegate, UIScrollViewDelegate>
 
 @end
 
@@ -35,6 +35,7 @@
     return self;
 }
 //-------------------
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -268,18 +269,6 @@
     }
 }
 
-- (void) cellDidPressLikeButton:(MediaTableViewCell *)cell {
-    Media *item = cell.mediaItem;
-    
-    [[DataSource sharedInstance] toggleLikeOnMediaItem:item withCompletionHandler:^{
-        if (cell.mediaItem == item) {
-            cell.mediaItem = item;
-        }
-    }];
-    
-    cell.mediaItem = item;
-}
-
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -352,6 +341,13 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self infiniteScrollIfNecessary];
 }
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    [self infiniteScrollIfNecessary];
+}
+
+
 
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];

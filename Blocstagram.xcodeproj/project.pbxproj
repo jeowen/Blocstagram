@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		56A81EDC1CA0877900EA7BF4 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A81EDB1CA0877900EA7BF4 /* MediaFullScreenViewController.m */; };
-		56AE07791CAE36F400BA731E /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AE07781CAE36F400BA731E /* CircleSpinnerView.m */; };
-		56AE077C1CAE37B700BA731E /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AE077B1CAE37B700BA731E /* LikeButton.m */; };
+		56B2F7681CAED49900340B6A /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B2F7641CAED49900340B6A /* LikeButton.m */; };
+		56B2F7691CAED49900340B6A /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B2F7661CAED49900340B6A /* CircleSpinnerView.m */; };
 		56C04ED41C77C347006FFDD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04ED31C77C347006FFDD7 /* main.m */; };
 		56C04ED71C77C347006FFDD7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04ED61C77C347006FFDD7 /* AppDelegate.m */; };
 		56C04EE01C77C347006FFDD7 /* Blocstagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56C04EDE1C77C347006FFDD7 /* Blocstagram.xcdatamodeld */; };
@@ -57,10 +57,10 @@
 /* Begin PBXFileReference section */
 		56A81EDA1CA0877900EA7BF4 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
 		56A81EDB1CA0877900EA7BF4 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
-		56AE07771CAE36F400BA731E /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
-		56AE07781CAE36F400BA731E /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
-		56AE077A1CAE37B700BA731E /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
-		56AE077B1CAE37B700BA731E /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		56B2F7641CAED49900340B6A /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		56B2F7651CAED49900340B6A /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		56B2F7661CAED49900340B6A /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
+		56B2F7671CAED49900340B6A /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
 		56C04ECF1C77C347006FFDD7 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C04ED31C77C347006FFDD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		56C04ED51C77C347006FFDD7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -163,14 +163,14 @@
 		56C04ED11C77C347006FFDD7 /* Blocstagram */ = {
 			isa = PBXGroup;
 			children = (
+				56B2F7641CAED49900340B6A /* LikeButton.m */,
+				56B2F7651CAED49900340B6A /* LikeButton.h */,
+				56B2F7661CAED49900340B6A /* CircleSpinnerView.m */,
+				56B2F7671CAED49900340B6A /* CircleSpinnerView.h */,
 				56C04F081C77C4BC006FFDD7 /* images */,
 				56C04ED51C77C347006FFDD7 /* AppDelegate.h */,
 				56C04ED61C77C347006FFDD7 /* AppDelegate.m */,
 				56C04EE11C77C347006FFDD7 /* Assets.xcassets */,
-				56AE07771CAE36F400BA731E /* CircleSpinnerView.h */,
-				56AE07781CAE36F400BA731E /* CircleSpinnerView.m */,
-				56AE077A1CAE37B700BA731E /* LikeButton.h */,
-				56AE077B1CAE37B700BA731E /* LikeButton.m */,
 				56C04EE31C77C347006FFDD7 /* LaunchScreen.storyboard */,
 				56C04EE61C77C347006FFDD7 /* Info.plist */,
 				56C04EDE1C77C347006FFDD7 /* Blocstagram.xcdatamodeld */,
@@ -445,10 +445,10 @@
 				56C04F2B1C7835E3006FFDD7 /* DataSource.m in Sources */,
 				56C04ED71C77C347006FFDD7 /* AppDelegate.m in Sources */,
 				56A81EDC1CA0877900EA7BF4 /* MediaFullScreenViewController.m in Sources */,
+				56B2F7681CAED49900340B6A /* LikeButton.m in Sources */,
 				56C04ED41C77C347006FFDD7 /* main.m in Sources */,
 				56C04F1F1C77C5A7006FFDD7 /* ImagesTableViewController.m in Sources */,
-				56AE077C1CAE37B700BA731E /* LikeButton.m in Sources */,
-				56AE07791CAE36F400BA731E /* CircleSpinnerView.m in Sources */,
+				56B2F7691CAED49900340B6A /* CircleSpinnerView.m in Sources */,
 				56C04EE01C77C347006FFDD7 /* Blocstagram.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
