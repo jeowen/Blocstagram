@@ -110,7 +110,7 @@ static NSParagraphStyle *paragraphStyle;
         //_mediaImageView's leading edge is equal to the content view's leading edge. Their trailing edges are equal too.
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
    
-[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]-10-[_numberOfLikesLabel]-10-[_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
+[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]-0-[_numberOfLikesLabel]-0-[_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
         //The three views should be stacked vertically, from the top, with no space in between.
@@ -347,7 +347,11 @@ static NSParagraphStyle *paragraphStyle;
 
 - (void) likePressed:(UIButton *)sender {
     [self.delegate cellDidPressLikeButton:self];
-    self.numberOfLikes++;
+    // set the number of likes self.numberOfLikes based on state: liked or unliked
+    self.numberOfLikes = self.numberOfLikes + 1;
+    
+
+    
 }
 
 
