@@ -48,7 +48,7 @@
     
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] initWithString:baseString];
     
-    [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:10] range:range];
+    [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Marker Felt" size:10] range:range];
     [commentString addAttribute:NSKernAttributeName value:@1.3 range:range];
     [commentString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1] range:range];
     
@@ -61,13 +61,13 @@
     
     if (self.isWritingComment) {
         self.textView.backgroundColor = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1]; /*#eeeeee*/
-        self.button.backgroundColor = [UIColor colorWithRed:0.345 green:0.318 blue:0.424 alpha:1]; /*#58516c*/
+        self.button.backgroundColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:1]; /*#58516c*/
         
         CGFloat buttonX = CGRectGetWidth(self.bounds) - CGRectGetWidth(self.button.frame) - 20;
         self.button.frame = CGRectMake(buttonX, 10, 80, 20);
     } else {
         self.textView.backgroundColor = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1]; /*#e5e5e5*/
-        self.button.backgroundColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1]; /*#999999*/
+        self.button.backgroundColor = [UIColor colorWithRed:0 green:0 blue:255 alpha:1]; /*#999999*/
         
         self.button.frame = CGRectMake(10, 10, 80, 20);
     }
