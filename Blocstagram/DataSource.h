@@ -43,7 +43,7 @@
 //- (void) moveMediaItemToTop:(Media *) item;
 
 - (void) toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler;
-
+ - (void) commentOnMediaItem:(Media *)mediaItem withCommentText:(NSString *)commentText;
 
 
 // property to store token received from web api
