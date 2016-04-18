@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5636FC371CC545B60029F6DB /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5636FC361CC545B60029F6DB /* CameraToolbar.m */; };
+		5636FC3A1CC549440029F6DB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5636FC391CC549440029F6DB /* CameraViewController.m */; };
+		5636FC3D1CC55C860029F6DB /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5636FC3C1CC55C860029F6DB /* UIImage+ImageUtilities.m */; };
 		56A05DFF1CC16238009671B5 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A05DFE1CC16238009671B5 /* CircleSpinnerView.m */; };
 		56A05E021CC162BA009671B5 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A05E011CC162BA009671B5 /* LikeButton.m */; };
 		56A81EDC1CA0877900EA7BF4 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A81EDB1CA0877900EA7BF4 /* MediaFullScreenViewController.m */; };
@@ -56,6 +59,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5636FC351CC545B60029F6DB /* CameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraToolbar.h; sourceTree = "<group>"; };
+		5636FC361CC545B60029F6DB /* CameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraToolbar.m; sourceTree = "<group>"; };
+		5636FC381CC549440029F6DB /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		5636FC391CC549440029F6DB /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		5636FC3B1CC55C860029F6DB /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
+		5636FC3C1CC55C860029F6DB /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
 		56A05DFD1CC16238009671B5 /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
 		56A05DFE1CC16238009671B5 /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
 		56A05E001CC162BA009671B5 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
@@ -170,6 +179,12 @@
 				56C04ED51C77C347006FFDD7 /* AppDelegate.h */,
 				56C04ED61C77C347006FFDD7 /* AppDelegate.m */,
 				56C04EE11C77C347006FFDD7 /* Assets.xcassets */,
+				5636FC351CC545B60029F6DB /* CameraToolbar.h */,
+				5636FC361CC545B60029F6DB /* CameraToolbar.m */,
+				5636FC381CC549440029F6DB /* CameraViewController.h */,
+				5636FC391CC549440029F6DB /* CameraViewController.m */,
+				5636FC3B1CC55C860029F6DB /* UIImage+ImageUtilities.h */,
+				5636FC3C1CC55C860029F6DB /* UIImage+ImageUtilities.m */,
 				56C04EE31C77C347006FFDD7 /* LaunchScreen.storyboard */,
 				56C04EE61C77C347006FFDD7 /* Info.plist */,
 				56C04EDE1C77C347006FFDD7 /* Blocstagram.xcdatamodeld */,
@@ -451,8 +466,11 @@
 				56C04ED71C77C347006FFDD7 /* AppDelegate.m in Sources */,
 				56A81EDC1CA0877900EA7BF4 /* MediaFullScreenViewController.m in Sources */,
 				56C04ED41C77C347006FFDD7 /* main.m in Sources */,
+				5636FC3A1CC549440029F6DB /* CameraViewController.m in Sources */,
+				5636FC371CC545B60029F6DB /* CameraToolbar.m in Sources */,
 				56C04F1F1C77C5A7006FFDD7 /* ImagesTableViewController.m in Sources */,
 				56A05E021CC162BA009671B5 /* LikeButton.m in Sources */,
+				5636FC3D1CC55C860029F6DB /* UIImage+ImageUtilities.m in Sources */,
 				56F9F26B1CC1A567006A9B40 /* ComposeCommentView.m in Sources */,
 				56A05DFF1CC16238009671B5 /* CircleSpinnerView.m in Sources */,
 				56C04EE01C77C347006FFDD7 /* Blocstagram.xcdatamodeld in Sources */,

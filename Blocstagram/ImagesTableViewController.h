@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CameraViewController.h"
 
 @interface ImagesTableViewController : UITableViewController
 
