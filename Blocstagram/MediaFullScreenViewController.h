@@ -20,9 +20,11 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) Media *media;
 @property (nonatomic, weak) id <MediaFullScreenViewControllerDelegate> delegate;
 - (instancetype) initWithMedia:(Media *)media;
 
 - (void) centerScrollView;
+ - (void) recalculateZoomScale;
 
 @end
