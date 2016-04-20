@@ -22,6 +22,16 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(100, 100);
     
+    // change inset (margin)
+    // top, left, bottom, right
+    // UIEdgeInsets titleInsets = UIEdgeInsetsMake(0.01,0.01,0.01,0.01);
+    CGFloat interItemSpacing = 10.0;
+    layout.minimumInteritemSpacing = interItemSpacing;
+    layout.minimumLineSpacing = interItemSpacing;
+    // layout.sectionInset = titleInsets;
+    
+    
+    
     return [super initWithCollectionViewLayout:layout];
 }
 
