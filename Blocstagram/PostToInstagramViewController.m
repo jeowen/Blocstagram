@@ -333,6 +333,17 @@
         }
     }];
     
+    // Jason filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *jasonFilter = [CIFilter filterWithName:@"CIGlassDistortion"];
+        
+        if (jasonFilter) {
+            [jasonFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:jasonFilter.outputImage withFilterTitle:NSLocalizedString(@"Jason", @"Jason Filter")];
+        }
+    }];
+    
     
 }
 
