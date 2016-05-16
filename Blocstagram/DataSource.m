@@ -539,7 +539,11 @@
                                              mediaItem.downloadState = MediaDownloadStateHasImage;
                                             NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
                                             NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
-                                            [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
+                                            if (index != NSNotFound) {
+                                                [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
+                                            } else {
+                                                mediaItem.downloadState = MediaDownloadStateNeedsImage;
+                                            }
                                             [self saveImages];
                                         } else {
                                             mediaItem.downloadState = MediaDownloadStateNonRecoverableError;

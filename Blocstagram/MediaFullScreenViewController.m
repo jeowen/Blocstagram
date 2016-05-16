@@ -76,6 +76,8 @@
     button.frame = CGRectMake(200.0, 21.0, 90.0, 40.0);
     [self.view addSubview:button];
     
+   // UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
 }
 
 - (void) buttonPressed:(UIControlEvents *)cEvent{
