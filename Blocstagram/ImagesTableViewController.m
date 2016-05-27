@@ -278,7 +278,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *item = [self items][indexPath.row];
-    return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
+    return [MediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame) traitCollection:self.view.traitCollection];
     //return [MediaTableViewCell heightForMediaItem:item width:100];
 }
 
