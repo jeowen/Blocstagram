@@ -211,6 +211,13 @@
     
     if (imageVC) {
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:imageVC];
+        
+        
+        nav.modalPresentationStyle = UIModalPresentationPopover;
+        UIPopoverPresentationController *popoverController = nav.popoverPresentationController;
+        popoverController.barButtonItem = sender;
+        
+        
         [self presentViewController:nav animated:YES completion:nil];
     }
     return;
@@ -329,6 +336,11 @@
 
 - (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
     MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
+    
+    if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
+        fullScreenVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
+ 
     
     [self presentViewController:fullScreenVC animated:YES completion:nil];
 }
