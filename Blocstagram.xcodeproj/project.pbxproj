@@ -40,6 +40,7 @@
 		56C04F2B1C7835E3006FFDD7 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04F2A1C7835E3006FFDD7 /* DataSource.m */; };
 		56C04F311C7C2A5A006FFDD7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04F301C7C2A5A006FFDD7 /* User.m */; };
 		56C04F371C7CFC57006FFDD7 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C04F361C7CFC57006FFDD7 /* MediaTableViewCell.m */; };
+		56C3DB841CF8159C006D97DC /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C3DB831CF8159C006D97DC /* UserTests.m */; };
 		56C663591C928690007AD51D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C663581C928690007AD51D /* LoginViewController.m */; };
 		56F9F26B1CC1A567006A9B40 /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F9F26A1CC1A567006A9B40 /* ComposeCommentView.m */; };
 		A23691FB42D195EE01122A0A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 668DAF14174D384595B39A08 /* libPods.a */; };
@@ -119,6 +120,7 @@
 		56C04F301C7C2A5A006FFDD7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		56C04F351C7CFC57006FFDD7 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
 		56C04F361C7CFC57006FFDD7 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
+		56C3DB831CF8159C006D97DC /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		56C663571C928690007AD51D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		56C663581C928690007AD51D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		56F9F2691CC1A567006A9B40 /* ComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeCommentView.h; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				56C04EEF1C77C347006FFDD7 /* BlocstagramTests.m */,
 				56C04EF11C77C347006FFDD7 /* Info.plist */,
+				56C3DB831CF8159C006D97DC /* UserTests.m */,
 			);
 			path = BlocstagramTests;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C3DB841CF8159C006D97DC /* UserTests.m in Sources */,
 				56C04EF01C77C347006FFDD7 /* BlocstagramTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
