@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "User.h"
+#import "Media.h"
 
 @interface UserTests : XCTestCase
 
@@ -50,5 +51,33 @@
     XCTAssertEqualObjects(testUser.fullName, sourceDictionary[@"full_name"], @"The full name should be equal");
     XCTAssertEqualObjects(testUser.profilePictureURL, [NSURL URLWithString:sourceDictionary[@"profile_picture"]], @"The profile picture should be equal");
 }
+
+- (void)testThatMediaInitializerWorks
+{
+      // create a user
+//    NSDictionary *sourceUserDictionary = @{@"id": @"8675309",
+//                                       @"username" : @"d'oh",
+//                                       @"full_name" : @"Homer Simpson",
+//                                       @"profile_picture" : @"http://www.example.com/example.jpg"};
+//    User *testUser = [[User alloc] initWithDictionary:sourceUserDictionary];
+//    
+    NSDictionary *sourceDictionary = @{@"id": @"8675309",
+                                       @"user" : @{@"id": @"8675309",
+                                                   @"username" : @"d'oh",
+                                                   @"full_name" : @"Homer Simpson",
+                                                   @"profile_picture" : @"http://www.example.com/example.jpg"},
+                                       @"mediaURL" : @"https://www.spacetelescope.org/images/archive/top100/",
+                                       @"downloadState" : @"successful",
+                                       @"caption" : @"Coolest Image in the Universe",
+                                       @"mcomments" : @"in celebration of NASA, ESA, and the Hubble Space Telescope",
+                                       @"likeState" : @"definitely liked"};
+    Media *testMedia = [[Media alloc] initWithDictionary:sourceDictionary];
+    
+    XCTAssertEqualObjects(testMedia.idNumber, sourceDictionary[@"id"], @"The ID number should be equal");
+    XCTAssertEqualObjects(testMedia.user, sourceDictionary[@"user"], @"The user object should be equal");
+    XCTAssertEqualObjects(testMedia.mediaURL, sourceDictionary[@"mediaURL"], @"The full name should be equal");
+
+}
+
 
 @end
